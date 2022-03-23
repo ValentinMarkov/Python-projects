@@ -2,9 +2,10 @@ import os
 
 colors = {
     'red': "\033[91m",
+    'green': "\033[92m",
+    'yellow': "\033[93m",
     'base': "\033[0m"
 }
-
 
 def get_files_path(extension='.txt'):
     files_path = os.path.join(os.curdir, 'words_directory')
