@@ -1,13 +1,16 @@
 import requests
+from prettytable import PrettyTable
 
 api_key = 'pk_e2179c5d0a894d499eec1c8dc4cc2cca'
 
 
 class CryptoCurrency:
     base_url = "https://cloud.iexapis.com/stable/crypto"
-
+    prices = []
     def __init__(self, symbol):
         self.symbol = symbol
+        self.add_price_to_list()
+
 
     @property
     def complete_url(self):
@@ -17,3 +20,21 @@ class CryptoCurrency:
     def price(self):
         req = requests.get(self.complete_url).json()  # This method convert JSON data to Python dictionary
         return float(req.get('price'))
+
+    def add_price_to_list(self):
+        CryptoCurrency.prices.append([self.price, self.symbol])
+
+    @staticmethod
+    def prices_table():
+        pt = PrettyTable(["Prices", "Crypto name"])
+        pt.add_rows(CryptoCurrency.prices)
+        return pt
+
+    @staticmethod
+    def clean_prices():
+        CryptoCurrency.prices.clear()
+
+
+    @staticmethod
+    def show_prices():
+        print(CryptoCurrency.prices_table())
