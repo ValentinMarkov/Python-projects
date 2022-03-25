@@ -1,16 +1,19 @@
 import requests
 from prettytable import PrettyTable
+import os
+from dotenv import load_dotenv
 
-api_key = 'pk_e2179c5d0a894d499eec1c8dc4cc2cca'
+load_dotenv()
+api_key = os.getenv('api_key')
 
 
 class CryptoCurrency:
     base_url = "https://cloud.iexapis.com/stable/crypto"
     prices = []
+
     def __init__(self, symbol):
         self.symbol = symbol
         self.add_price_to_list()
-
 
     @property
     def complete_url(self):
@@ -33,7 +36,6 @@ class CryptoCurrency:
     @staticmethod
     def clean_prices():
         CryptoCurrency.prices.clear()
-
 
     @staticmethod
     def show_prices():
