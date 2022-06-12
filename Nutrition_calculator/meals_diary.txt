@@ -1,0 +1,9 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * * *
+Meal take on: 2022-06-12 10:57:26.937542
+This meal you consume: {'yogurt': '100', 'oats': '30', 'pr_doze': '100', 'apple': '100', 'cottage_cheese': '100', 'walnut': '20'}
+Total nutrition intake:
+	Protein: 44.75 grams
+	Fat: 21.22 grams
+	Carbohydrate: 47.24 grams
+	Energy: 478.5 cal
+* * * * * * * * * * * * * * * * * * * * * * * * * * *
