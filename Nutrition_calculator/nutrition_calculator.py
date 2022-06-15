@@ -13,6 +13,7 @@ food_intake = {}
 
 food_list = []
 
+
 while True:
     meal = input("What you eat ? ")
     if meal == 'q':

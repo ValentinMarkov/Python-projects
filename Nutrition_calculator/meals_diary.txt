@@ -1,9 +1,33 @@
+
 * * * * * * * * * * * * * * * * * * * * * * * * * * *
-Meal take on: 2022-06-12 10:57:26.937542
-This meal you consume: {'yogurt': '100', 'oats': '30', 'pr_doze': '100', 'apple': '100', 'cottage_cheese': '100', 'walnut': '20'}
+Meal take on: 2022-06-14 09:56:24.315851
+This meal you consume: {'pr_doze': '100', 'yogurt': '130', 'oats': '30', 'walnut': '20', 'berry': '60', 'cottage_cheese': '100'}
 Total nutrition intake:
-	Protein: 44.75 grams
-	Fat: 21.22 grams
-	Carbohydrate: 47.24 grams
-	Energy: 478.5 cal
+	Protein: 45.74 grams
+	Fat: 22.56 grams
+	Carbohydrate: 42.97 grams
+	Energy: 479.4 cal
 * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Meal take on: 2022-06-14 21:29:05.288249
+This meal you consume: {'pork_steak': '130', 'salad_tomato_cucumber': '160', 'egg_fry': '60'}
+Total nutrition intake:
+	Protein: 33.98 grams
+	Fat: 40.35 grams
+	Carbohydrate: 17.6 grams
+	Energy: 573.2 cal
+* * * * * * * * * * * * * * * * * * * * * * * * * * *
+Meal take on: 2022-06-14 22:15:39.035605
+This meal you consume: {'banana': '110', 'apple': '80'}
+Total nutrition intake:
+	Protein: 1.45 grams
+	Fat: 3.4 grams
+	Carbohydrate: 42.3 grams
+	Energy: 136.3 cal
+* * * * * * * * * * * * * * * * * * * * * * * * * * *
+Meal take on: 2022-06-15 09:15:40.810663
+This meal you consume: {'yogurt': '100', 'oats': '30', 'pr_doze': '100', 'berry': '60', 'cottage_cheese': '105'}
+Total nutrition intake:
+	Protein: 42.29 grams
+	Fat: 8.48 grams
+	Carbohydrate: 39.09 grams
+	Energy: 334.55 cal
