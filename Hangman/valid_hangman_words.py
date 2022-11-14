@@ -1,3 +1,3 @@
 words = [
-    'water', 'car', 'day', 'windows', 'light'
+    'water', 'car', 'day', 'windows', 'light', 'drink', 'laptop', 'ship', 'forest', 'chair'
 ]
