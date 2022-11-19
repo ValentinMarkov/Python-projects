@@ -1,5 +1,6 @@
 import random
 from valid_hangman_words import words
+from visual_parts import parts
 
 
 def pick_up_word():
@@ -41,7 +42,7 @@ def game():
     first_last_letter = word_parts[0]
     mid_letters = word_parts[1]
 
-    # Replace mid letters with symbols
+    # Replace mid-letters with symbols
     shadow = '*' * len(mid_letters)
 
     # Create lists with letters and symbols
@@ -50,8 +51,10 @@ def game():
 
     playing = True
     wrong_letter_cnt = 0
+    player_letter_lst = []
 
     while playing:
+        print(f"Player guessed letters: {player_letter_lst}")
         print('# '*20)
         display_word = ''
         for char in lst_first_last_letter:
@@ -78,10 +81,13 @@ def game():
 
         else:
             print(f"Wrong letter '{player_char}'. Try Again!")
+            player_letter_lst.append(player_char)
             wrong_letter_cnt += 1
+            print(parts[wrong_letter_cnt-1])
 
-            if wrong_letter_cnt > 2:
+            if wrong_letter_cnt == 8:
                 print('You are hanged!!! Game over.')
+
                 # TODO: Create property code here
 
         if "*" not in lst_shadow:
