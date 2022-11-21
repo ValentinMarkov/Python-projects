@@ -51,7 +51,7 @@ def play_number_guessing():
             game_hint(number, hint_stage)
             hint_stage += 1
 
-            if hint_stage == 3:
+            if hint_stage > 3:
                 print('Too many hints!. You lose game !!!')
                 game = False
                 break
