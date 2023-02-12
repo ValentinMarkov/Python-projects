@@ -5,4 +5,4 @@ if __name__ == "__main__":
     prod_weight = float(input(f'Product weight: '))
 
     prod_1 = Product(prod_name, prod_weight)
-    print(Product.calculation_nutrition(prod_1))
+    Product.print_results(prod_1)

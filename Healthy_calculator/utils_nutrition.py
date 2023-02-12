@@ -24,12 +24,17 @@ class Product:
         """Calculate nutrition values per product weight"""
         product_nutrition_values = Product.product_nutrition_values(self)
         protein = round(((float(product_nutrition_values[0]) / 100) * self.weight), 1)
-        fat = round(((float(product_nutrition_values[1]) / 100) * self.weight),1)
+        fat = round(((float(product_nutrition_values[1]) / 100) * self.weight), 1)
         carbohydrate = round(((float(product_nutrition_values[2]) / 100) * self.weight), 1)
         energy = round(((float(product_nutrition_values[3]) / 100) * self.weight), 1)
 
         return protein, fat, carbohydrate, energy
 
-
-
-
+    def print_results(self):
+        """Print readable info"""
+        print('* ' * 30)
+        print(f'Total proteins: {Product.calculation_nutrition(self)[0]}\n'
+              f'Total fat: {Product.calculation_nutrition(self)[1]}\n'
+              f'Total carbohydrate: {Product.calculation_nutrition(self)[2]}\n'
+              f'Total energy: {Product.calculation_nutrition(self)[3]}\n'
+              )
