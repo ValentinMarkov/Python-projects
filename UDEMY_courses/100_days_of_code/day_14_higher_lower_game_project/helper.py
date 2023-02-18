@@ -19,22 +19,6 @@ def remove_already_picked_element(source: list, picked_element: int):
     return source
 
 
-def get_and_remove_two_elements(source):
-    first = get_rnd_element(source)  # ({'London': 450000}, 4)
-    remove_already_picked_element(source, first[1])
-
-    second = get_rnd_element(source)
-    remove_already_picked_element(source, second[1])
-
-    my_key_first = [k for k, v in first[0].items()]
-    my_value_first = [v for k, v in first[0].items()]
-
-    my_key_second = [k for k, v in second[0].items()]
-    my_value_second = [v for k, v in second[0].items()]
-
-    return my_key_first, my_value_first, my_key_second, my_value_second
-
-
 def get_and_remove_one_element(source):
     first = get_rnd_element(source)  # ({'London': 450000}, 4)
     remove_already_picked_element(source, first[1])
@@ -54,27 +38,27 @@ def game(source: list):
     player_score = 0
     first_element_to_compare = 0
 
+    answer_key = ''
+    answer_value = 0
+
+    loser_key = ''
+    loser_value = 0
+
     while True:
         if flag:
             if len(source) == 0:
                 print('No more item in DB')
                 break
 
-            one = get_and_remove_one_element(source)  # ('London', 450000)
-            two = get_and_remove_one_element(source)  # ('London', 450000)
+            one = get_and_remove_one_element(source)
+            two = get_and_remove_one_element(source)
 
             print(f"More searches for {one[0]} witch {one[1]} searches, or for {two[0]}?")
             player_answer = int(input(f'Select {one[0]}-(1) or {two[0]}-(2)? \n'))
 
-            answer_key = ''
-            answer_value = 0
-
-            loser_key = ''
-            loser_value = 0
-
             if one[1] > two[1]:
                 correct_answer = 1
-                first_element_to_compare = two  # ('London', 450000)
+                first_element_to_compare = two
                 answer_key = one[0]
                 answer_value = one[1]
                 loser_key = two[0]
@@ -110,20 +94,14 @@ def game(source: list):
                 break
 
             first = first_element_to_compare
-            two = get_and_remove_one_element(source)  # ('London', 450000)
+            two = get_and_remove_one_element(source)
 
-            print(f"More searches for {first[0]} witch {first[1]} searches, or for '{two[0]}'?")
+            print(f"More searches for {first[0]} witch {first[1]} searches, or for {two[0]}?")
             player_answer = int(input(f'Select {first[0]}-(1) or {two[0]}-(2)? \n'))
-
-            answer_key = ''
-            answer_value = 0
-
-            loser_key = ''
-            loser_value = 0
 
             if first[1] > two[1]:
                 correct_answer = 1
-                first_element_to_compare = two  # ('London', 450000)
+                first_element_to_compare = two
                 answer_key = first[0]
                 answer_value = first[1]
                 loser_key = two[0]
@@ -131,7 +109,7 @@ def game(source: list):
 
             else:
                 correct_answer = 2
-                first_element_to_compare = two  # ('London', 450000)
+                first_element_to_compare = two
                 answer_key = two[0]
                 answer_value = two[1]
                 loser_key = first[0]
