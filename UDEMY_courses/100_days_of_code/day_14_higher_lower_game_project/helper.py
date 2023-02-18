@@ -34,15 +34,8 @@ def get_and_remove_one_element(source):
 def game(source: list):
     flag = True
 
-    correct_answer = 0
     player_score = 0
     first_element_to_compare = 0
-
-    answer_key = ''
-    answer_value = 0
-
-    loser_key = ''
-    loser_value = 0
 
     while True:
         if flag:
