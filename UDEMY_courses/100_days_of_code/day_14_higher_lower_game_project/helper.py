@@ -1,11 +1,11 @@
 import random
 
-lst_questions = [{'red hot chili paper': 250000}, {'everest': 550000}, {'japan': 1000000},
-                 {'metallica': 350000},
+lst_questions = [{'Red hot chili paper': 250000}, {'Everest': 550000}, {'Japan': 1000000},
+                 {'Metallica': 350000},
                  {'Paris': 703000},
                  {'London': 450000},
                  {'Scarlet Johanson': 389000},
-                 {'the Rock': 790000}]
+                 {'The Rock': 790000}]
 
 
 def get_rnd_element(source: list):
@@ -39,12 +39,12 @@ def get_and_remove_one_element(source):
     first = get_rnd_element(source)  # ({'London': 450000}, 4)
     remove_already_picked_element(source, first[1])
 
-    # my_key_first = [k for k, v in first[0].items()]
-    # my_value_first = [v for k, v in first[0].items()]
+    data = ()
 
-    # return my_key_first, my_value_first
-    return first[0]
+    for k, v in first[0].items():
+        data = k, v
 
+    return data
 
 
 def game(source: list):
@@ -60,30 +60,45 @@ def game(source: list):
                 print('No more item in DB')
                 break
 
-            two_elements = get_and_remove_two_elements(source)  # return my_key_first, my_value_first, my_key_second, my_value_second
-            # (['the Rock'], [790000], ['London'], [450000])
+            one = get_and_remove_one_element(source)  # ('London', 450000)
+            two = get_and_remove_one_element(source)  # ('London', 450000)
 
-            print(f"More searches for '{two_elements[0][0]}' witch {two_elements[1][0]} searches, or for '{two_elements[2][0]}'?")
-            player_answer = int(input(f'Select "{two_elements[0][0]}" or "{two_elements[2][0]}"? Answer 1 or 2: '))
+            print(f"More searches for {one[0]} witch {one[1]} searches, or for {two[0]}?")
+            player_answer = int(input(f'Select {one[0]}-(1) or {two[0]}-(2)? \n'))
 
-            if two_elements[1][0] > two_elements[3][0]:
+            answer_key = ''
+            answer_value = 0
+
+            loser_key = ''
+            loser_value = 0
+
+            if one[1] > two[1]:
                 correct_answer = 1
-                first_element_to_compare = (two_elements[0], two_elements[1])
+                first_element_to_compare = two  # ('London', 450000)
+                answer_key = one[0]
+                answer_value = one[1]
+                loser_key = two[0]
+                loser_value = two[1]
 
             else:
                 correct_answer = 2
-                first_element_to_compare = first_element_to_compare = (two_elements[2], two_elements[3])
+                first_element_to_compare = two  # ('London', 450000)
+                answer_key = two[0]
+                answer_value = two[1]
+                loser_key = one[0]
+                loser_value = one[1]
 
             if correct_answer == player_answer:
                 player_score += 1
-                print('Correct !!!')
+                print('\nCorrect !!!')
                 print(f'Player score: {player_score} points')
                 print(
-                    f"'{two_elements[0][0]}' witch {two_elements[1][0]} searches VS '{two_elements[2][0]}' witch {two_elements[3][0]} searches")
+                    f"{answer_key} witch {answer_value} searches VS {loser_key} witch {loser_value} searches\n")
+
             else:
                 print('Wrong !!!')
                 print(
-                    f"'{two_elements[0][0]}' witch {two_elements[1][0]} searches VS '{two_elements[2][0]}' witch {two_elements[3][0]} searches")
+                    f"{answer_key} witch {answer_value} searches VS {loser_key} witch {loser_value} searches")
                 print(f'Player score: {player_score} points')
                 break
 
@@ -91,41 +106,49 @@ def game(source: list):
 
         else:
             if len(source) == 0:
-                print('No more item in DB')
+                print('No more item in DB. Game ends ;-(')
                 break
 
             first = first_element_to_compare
+            two = get_and_remove_one_element(source)  # ('London', 450000)
 
-            second = get_and_remove_one_element(source)
+            print(f"More searches for {first[0]} witch {first[1]} searches, or for '{two[0]}'?")
+            player_answer = int(input(f'Select {first[0]}-(1) or {two[0]}-(2)? \n'))
 
-            print(
-                f"More searches for '{first[0]}' witch {first[1]} searches, or for '{second[0]}'?")
-            player_answer = int(input(f'Select "{first[0]}" or "{second[0]}"? Answer 1 or 2: '))
+            answer_key = ''
+            answer_value = 0
 
-            correct_answer = 0
-            player_score = 0
-            if first[0][1] > second[3][0]:
+            loser_key = ''
+            loser_value = 0
+
+            if first[1] > two[1]:
                 correct_answer = 1
+                first_element_to_compare = two  # ('London', 450000)
+                answer_key = first[0]
+                answer_value = first[1]
+                loser_key = two[0]
+                loser_value = two[1]
+
             else:
                 correct_answer = 2
+                first_element_to_compare = two  # ('London', 450000)
+                answer_key = two[0]
+                answer_value = two[1]
+                loser_key = first[0]
+                loser_value = first[1]
 
             if correct_answer == player_answer:
                 player_score += 1
-                print('Correct !!!')
+                print('\nCorrect !!!')
                 print(f'Player score: {player_score} points')
                 print(
-                    f"'{first[0]}' witch {first[1]} searches VS '{second[0]}' witch {second[1]} searches")
-
-                first_element_to_compare = second
+                    f"{answer_key} witch {answer_value} searches VS {loser_key} witch {loser_value} searches\n")
 
             else:
                 print('Wrong !!!')
                 print(
-                    f"'{first[0][0]}' witch {first[0][1]} searches VS '{second[0][0]}' witch {second[3][0]} searches")
+                    f"{answer_key} witch {answer_value} searches VS {loser_key} witch {loser_value} searches")
                 print(f'Player score: {player_score} points')
                 break
 
-
-
-game(lst_questions)
 
