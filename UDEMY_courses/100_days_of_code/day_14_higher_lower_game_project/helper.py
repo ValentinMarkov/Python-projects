@@ -1,11 +1,5 @@
+import os
 import random
-
-lst_questions = [{'Red hot chili paper': 250000}, {'Everest': 550000}, {'Japan': 1000000},
-                 {'Metallica': 350000},
-                 {'Paris': 703000},
-                 {'London': 450000},
-                 {'Scarlet Johanson': 389000},
-                 {'The Rock': 790000}]
 
 
 def get_rnd_element(source: list):
@@ -48,6 +42,7 @@ def game(source: list):
 
             print(f"More searches for {one[0]} witch {one[1]} searches, or for {two[0]}?")
             player_answer = int(input(f'Select {one[0]}-(1) or {two[0]}-(2)? \n'))
+            os.system('cls')
 
             if one[1] > two[1]:
                 correct_answer = 1
@@ -91,6 +86,7 @@ def game(source: list):
 
             print(f"More searches for {first[0]} witch {first[1]} searches, or for {two[0]}?")
             player_answer = int(input(f'Select {first[0]}-(1) or {two[0]}-(2)? \n'))
+            os.system('cls')
 
             if first[1] > two[1]:
                 correct_answer = 1
