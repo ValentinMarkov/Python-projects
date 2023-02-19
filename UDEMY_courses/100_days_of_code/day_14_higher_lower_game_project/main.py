@@ -1,5 +1,5 @@
-from helper import *
-import game_data
+from helper import game
+from game_data import lst_questions
 
 if __name__ == "__main__":
-    game(game_data.lst_questions)
+    game(lst_questions)
