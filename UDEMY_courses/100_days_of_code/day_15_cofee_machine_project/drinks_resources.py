@@ -2,6 +2,7 @@ resources = {
     'water': 300,
     'milk': 200,
     'coffee': 200,
+    'money': 0
 }
 
 drink_recipes = {
