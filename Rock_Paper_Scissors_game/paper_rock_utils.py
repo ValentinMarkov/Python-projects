@@ -31,32 +31,34 @@ def play_game():
     pl_win_cnt = 0
     com_win_cnt = 0
 
-    while pl_win_cnt or com_win_cnt < 3:
-        player_move()
-        computer_move()
-        print(player_move())
-        print(computer_move())
+    while pl_win_cnt != 3 and com_win_cnt != 3:
+        p_result = player_move()
+        com_result = computer_move()
 
-        if player_move() == computer_move():
-            print(f'EQUALITY: {player_move()} vs {computer_move()}')
+        if p_result == com_result:
+            print(f'EQUALITY: {p_result} vs {com_result}')
 
-        elif player_move() == 'r' and computer_move() == 'p':
+        elif p_result == 'r' and com_result == 'p':
             com_win_cnt += 1
             print(f'Player {r} vs Computer {p}. {pl_lose}')
 
-        elif player_move() == 's' and computer_move() == 'r':
+        elif p_result == 's' and com_result == 'r':
             com_win_cnt += 1
             print(f'Player {s} vs Computer {r}. {pl_lose}')
 
-        elif player_move() == 's' and computer_move() == 'p':
+        elif p_result == 's' and com_result == 'p':
             pl_win_cnt += 1
             print(f'Player {s} vs Computer {p}. {pl_win}')
 
-        elif player_move() == 'p' and computer_move() == 's':
+        elif p_result == 'p' and com_result == 's':
             pl_win_cnt += 1
             print(f'Player {p} vs Computer {s}. {pl_lose}')
 
-        elif player_move() == 'p' and computer_move() == 'r':
+        elif p_result == 'p' and com_result == 'r':
+            pl_win_cnt += 1
+            print(f'Player {p} vs Computer {r}. {pl_win}')
+
+        elif p_result == 'r' and com_result == 's':
             pl_win_cnt += 1
             print(f'Player {p} vs Computer {r}. {pl_win}')
 
