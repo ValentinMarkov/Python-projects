@@ -14,42 +14,50 @@ def computer_move():
     return dict_item[item]
 
 
+def win_counter(game_results):
+    if game_results[0] > game_results[1]:
+        result = f'The winner is PLAYER with result: {game_results[0]} vs {game_results[1]}'
+    else:
+        result = f'The winner is Computer with result: {game_results[1]} vs {game_results[0]}'
+
+    return result
+
+
 def play_game():
-    player_item = player_move()
-    com_move = computer_move()
-    s, r, p = 'Scissor', 'ROCK', 'Paper'
-    equality = 'There is no winner. Play again!'
+    s, r, p = 'Scissor', 'Rock', 'Paper'
     pl_win = 'Player WIN !!!'
     pl_lose = 'Player LOSE !!!'
 
-    if player_item == 'r' and com_move == 's':
-        print(f"Player {r} vs Computer {s}. {pl_win}")
+    pl_win_cnt = 0
+    com_win_cnt = 0
 
-    elif player_item == 'r' and com_move == 'r':
-        print(f'Player {r} vs Computer {r}. {equality}')
-        play_game()
+    while pl_win_cnt or com_win_cnt < 3:
+        player_move()
+        computer_move()
+        print(player_move())
+        print(computer_move())
 
-    elif player_item == 'r' and com_move == 'p':
-        print(f'Player {r} vs Computer {p}. {pl_lose}')
+        if player_move() == computer_move():
+            print(f'EQUALITY: {player_move()} vs {computer_move()}')
 
-    elif player_item == 's' and com_move == 's':
-        print(f'Player {s} vs Computer {s}. {equality}')
-        play_game()
+        elif player_move() == 'r' and computer_move() == 'p':
+            com_win_cnt += 1
+            print(f'Player {r} vs Computer {p}. {pl_lose}')
 
-    elif player_item == 's' and com_move == 'r':
-        print(f'Player {s} vs Computer {r}. {pl_lose}')
+        elif player_move() == 's' and computer_move() == 'r':
+            com_win_cnt += 1
+            print(f'Player {s} vs Computer {r}. {pl_lose}')
 
-    elif player_item == 's' and com_move == 'p':
-        print(f'Player {s} vs Computer {p}. {pl_win}')
+        elif player_move() == 's' and computer_move() == 'p':
+            pl_win_cnt += 1
+            print(f'Player {s} vs Computer {p}. {pl_win}')
 
-    elif player_item == 'p' and com_move == 's':
-        print(f'Player {p} vs Computer {s}. {pl_lose}')
+        elif player_move() == 'p' and computer_move() == 's':
+            pl_win_cnt += 1
+            print(f'Player {p} vs Computer {s}. {pl_lose}')
 
-    elif player_item == 'p' and com_move == 'r':
-        print(f'Player {p} vs Computer {r}. {pl_win}')
+        elif player_move() == 'p' and computer_move() == 'r':
+            pl_win_cnt += 1
+            print(f'Player {p} vs Computer {r}. {pl_win}')
 
-    elif player_item == 'p' and com_move == 'p':
-        print(f'Player {p} vs Computer {p}. {equality}')
-        play_game()
-
-
+    return pl_win_cnt, com_win_cnt
